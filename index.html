@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Sicula Barber — London</title>
+  <meta name="description" content="La Sicula Barber. Professional haircuts in London. Founded by Dr. Radicia, trained at the London School of Barbering. Book online." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">La Sicula<span>Barber</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="#find">Find Us</a></li>
+    </ul>
+    <a href="#book" class="nav-cta">Book Now</a>
+    <button class="nav-burger" id="burger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#services" class="mm-link">Services</a></li>
+      <li><a href="#about" class="mm-link">About</a></li>
+      <li><a href="#process" class="mm-link">How It Works</a></li>
+      <li><a href="#find" class="mm-link">Find Us</a></li>
+      <li><a href="#book" class="mm-link mm-cta">Book Now</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="hero-bg">
+      <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1800&q=85&fit=crop" alt="Barber at work" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow" data-reveal>London · Est. 2025</p>
+      <h1 class="hero-title" data-reveal data-delay="1">
+        <span>Precision.</span>
+        <span class="hero-title-italic">Crafted</span>
+        <span>In London.</span>
+      </h1>
+      <p class="hero-sub" data-reveal data-delay="2">Founded by Dr. Radicia. Trained at the London School of Barbering. Built for this city.</p>
+      <a href="#book" class="hero-btn" data-reveal data-delay="3">
+        <span>Book Your Appointment</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="hero-scroll-hint" data-reveal data-delay="4">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat" data-reveal data-delay="3">
+        <strong class="counter" data-target="100">0</strong><span>%</span>
+        <p>Professionally Trained</p>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat" data-reveal data-delay="4">
+        <strong class="counter" data-target="3">0</strong><span>+</span>
+        <p>Signature Services</p>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat" data-reveal data-delay="5">
+        <strong>5★</strong>
+        <p>Google Rated</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <div class="marquee-inner" id="marquee">
+        <span>La Sicula Barber</span><span class="dot">✦</span>
+        <span>Fades</span><span class="dot">✦</span>
+        <span>Tapers</span><span class="dot">✦</span>
+        <span>Classic Cuts</span><span class="dot">✦</span>
+        <span>London School of Barbering</span><span class="dot">✦</span>
+        <span>Book Online</span><span class="dot">✦</span>
+        <span>Dr. Radicia</span><span class="dot">✦</span>
+        <span>London</span><span class="dot">✦</span>
+        <span>La Sicula Barber</span><span class="dot">✦</span>
+        <span>Fades</span><span class="dot">✦</span>
+        <span>Tapers</span><span class="dot">✦</span>
+        <span>Classic Cuts</span><span class="dot">✦</span>
+        <span>London School of Barbering</span><span class="dot">✦</span>
+        <span>Book Online</span><span class="dot">✦</span>
+        <span>Dr. Radicia</span><span class="dot">✦</span>
+        <span>London</span><span class="dot">✦</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-intro" data-reveal>
+        <p class="eyebrow">What We Offer</p>
+        <h2 class="section-title">Three Signatures.<br>One Standard.</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" data-reveal data-delay="1">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&q=80&fit=crop" alt="Fade haircut" loading="lazy" />
+            <div class="service-img-overlay"></div>
+          </div>
+          <div class="service-body">
+            <span class="service-num">01</span>
+            <h3 class="service-name">The Fade</h3>
+            <p class="service-desc">A seamless blend from skin to length. Clean, sharp, and tailored precisely to the contour of your head.</p>
+            <div class="service-footer">
+              <span class="service-price">From £20</span>
+              <a href="#book" class="service-link">Book <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="service-card service-card--featured" data-reveal data-delay="2">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?w=600&q=80&fit=crop" alt="Taper haircut" loading="lazy" />
+            <div class="service-img-overlay"></div>
+          </div>
+          <div class="service-body">
+            <span class="service-num">02</span>
+            <h3 class="service-name">The Taper</h3>
+            <p class="service-desc">Controlled graduation that transitions naturally, keeping length and structure where it matters most.</p>
+            <div class="service-footer">
+              <span class="service-price">From £22</span>
+              <a href="#book" class="service-link">Book <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="service-card" data-reveal data-delay="3">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&q=80&fit=crop" alt="Classic cut" loading="lazy" />
+            <div class="service-img-overlay"></div>
+          </div>
+          <div class="service-body">
+            <span class="service-num">03</span>
+            <h3 class="service-name">Classic Cut</h3>
+            <p class="service-desc">Scissor work. Precision lines. A timeless result that works in every room you walk into.</p>
+            <div class="service-footer">
+              <span class="service-price">From £25</span>
+              <a href="#book" class="service-link">Book <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-img-col">
+      <div class="about-img-wrap" id="about-parallax">
+        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=900&q=80&fit=crop" alt="La Sicula Barber interior" loading="lazy" />
+      </div>
+      <div class="about-img-badge" data-reveal>
+        <span class="badge-num counter" data-target="1">0</span>
+        <span class="badge-label">London's Newest<br>Precision Barbershop</span>
+      </div>
+    </div>
+    <div class="about-content-col">
+      <div class="about-content">
+        <p class="eyebrow" data-reveal>The Story</p>
+        <h2 class="section-title" data-reveal>Built For<br>This Neighbourhood.</h2>
+        <p class="about-body" data-reveal>La Sicula Barber was founded on one principle: a great haircut should not be a luxury. Dr. Radicia trained at the London School of Barbering — one of the UK's most prestigious barbering academies — and brought that standard directly into the local community.</p>
+        <p class="about-body" data-reveal>Every technique is precise. Every client leaves confident. Whether you are a student, a professional, or a local resident, the standard is the same: exceptional, every time.</p>
+        <blockquote class="about-quote" data-reveal>
+          <p>"The chair does not care who sits in it. The standard never drops."</p>
+          <cite>Dr. Radicia — Founder, La Sicula Barber</cite>
+        </blockquote>
+        <a href="#book" class="btn-primary" data-reveal>Book Your First Cut</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-intro centered" data-reveal>
+        <p class="eyebrow">Simple. Fast. Done Right.</p>
+        <h2 class="section-title">How It Works</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step" data-reveal data-delay="1">
+          <div class="step-num">01</div>
+          <div class="step-line"></div>
+          <h3 class="step-title">Choose Your Service</h3>
+          <p class="step-desc">Fade, taper, or classic cut. Pick the service that suits your style and schedule.</p>
+        </div>
+        <div class="process-step" data-reveal data-delay="2">
+          <div class="step-num">02</div>
+          <div class="step-line"></div>
+          <h3 class="step-title">Book Online</h3>
+          <p class="step-desc">Select your date and time. Confirm in under 60 seconds. No phone calls, no waiting.</p>
+        </div>
+        <div class="process-step" data-reveal data-delay="3">
+          <div class="step-num">03</div>
+          <div class="step-line"></div>
+          <h3 class="step-title">Walk Out Confident</h3>
+          <p class="step-desc">Dr. Radicia delivers your cut to a professional standard. Every visit, without exception.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-intro" data-reveal>
+        <p class="eyebrow">Client Words</p>
+        <h2 class="section-title">What London Says.</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card" data-reveal data-delay="1">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Best fade I've had in London. Clean lines, no fuss, done properly. Already booked my next one."</p>
+          <p class="testi-author">James T. — Verified Client</p>
+        </div>
+        <div class="testi-card testi-card--large" data-reveal data-delay="2">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Finally found a barber I can trust. Dr. Radicia knows exactly what he is doing. The taper was flawless — and I've tried every barbershop in the area."</p>
+          <p class="testi-author">Marcus O. — Verified Client</p>
+        </div>
+        <div class="testi-card" data-reveal data-delay="3">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Booked online, no hassle. Great atmosphere, even better results. Coming back every two weeks."</p>
+          <p class="testi-author">Ryan K. — Verified Client</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK -->
+  <section class="book" id="book">
+    <div class="book-bg">
+      <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1400&q=80&fit=crop" alt="Barber shop" loading="lazy" />
+      <div class="book-overlay"></div>
+    </div>
+    <div class="book-content">
+      <div class="book-text" data-reveal>
+        <p class="eyebrow eyebrow--light">Reserve Your Seat</p>
+        <h2 class="section-title section-title--light">Book Your Cut.</h2>
+        <p class="book-sub">Select a service, pick your time, and we will confirm within the hour. Or book instantly via Fresha.</p>
+      </div>
+      <div class="book-form-wrap" data-reveal data-delay="1">
+        <form class="book-form" id="book-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" name="fname" placeholder="James" required />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" name="lname" placeholder="Taylor" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="james@email.com" required />
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" name="phone" placeholder="+44 7700 000000" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Service</label>
+              <select name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option>The Fade — From £20</option>
+                <option>The Taper — From £22</option>
+                <option>Classic Cut — From £25</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Preferred Date</label>
+              <input type="date" name="date" required />
+            </div>
+          </div>
+          <div class="form-group form-full">
+            <label>Preferred Time</label>
+            <input type="text" name="time" placeholder="e.g. 10:00am or 2:30pm" />
+          </div>
+          <button type="submit" class="form-submit">
+            <span>Confirm Booking</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="form-note">Or book instantly via <a href="https://www.fresha.com" target="_blank">Fresha →</a></p>
+        </form>
+        <div class="form-success" id="form-success">
+          <div class="success-icon">✓</div>
+          <h3>Booking Received</h3>
+          <p>We will confirm your appointment within the hour. See you in the chair.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIND US -->
+  <section class="find" id="find">
+    <div class="container">
+      <div class="find-grid">
+        <div class="find-info">
+          <p class="eyebrow" data-reveal>Get Here</p>
+          <h2 class="section-title" data-reveal>Find La Sicula.</h2>
+          <div class="find-details">
+            <div class="find-item" data-reveal>
+              <span class="find-label">Address</span>
+              <span class="find-val">La Sicula Barber, London, UK</span>
+            </div>
+            <div class="find-item" data-reveal>
+              <span class="find-label">Hours</span>
+              <span class="find-val">Mon–Fri: 9am – 7pm<br>Saturday: 9am – 6pm<br>Sunday: Closed</span>
+            </div>
+            <div class="find-item" data-reveal>
+              <span class="find-label">Social</span>
+              <span class="find-val">@LaSiculaBarber<br>Instagram · TikTok</span>
+            </div>
+          </div>
+          <a href="#book" class="btn-primary btn-dark" data-reveal>Book Now →</a>
+        </div>
+        <div class="find-map" data-reveal>
+          <div class="map-shell">
+            <div class="map-pin-wrap">
+              <div class="map-pin-pulse"></div>
+              <div class="map-pin-dot"></div>
+            </div>
+            <p class="map-label">London, UK</p>
+            <p class="map-sub">Google Maps embed here</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">La Sicula<span>Barber</span></div>
+      <ul class="footer-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#book">Book</a></li>
+        <li><a href="#find">Find Us</a></li>
+      </ul>
+      <p class="footer-copy">© 2025 La Sicula Barber — London</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
