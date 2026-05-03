@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>About — La Sicula Barber London</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .about-split { display:grid; grid-template-columns:1fr 1fr; min-height:80vh; }
+    .about-img-col { position:relative; overflow:hidden; }
+    .about-img-col img { width:100%; height:100%; object-fit:cover; min-height:500px; }
+    .about-text-col { background:var(--cream); display:flex; align-items:center; }
+    .about-text { padding:6rem 5rem; }
+    .about-body { font-size:.95rem; color:var(--ink-soft); line-height:1.85; font-weight:300; margin-bottom:1.2rem; max-width:460px; }
+    .about-quote { border-left:2px solid var(--green-light); padding-left:1.5rem; margin:2.5rem 0; }
+    .about-quote p { font-family:var(--font-serif); font-style:italic; font-size:1.2rem; color:var(--green); line-height:1.55; font-weight:300; margin-bottom:.5rem; }
+    .about-quote cite { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(27,67,50,.4); font-style:normal; }
+    .credential-bar { display:flex; align-items:center; gap:1rem; margin-top:2.5rem; padding-top:2rem; border-top:1px solid rgba(27,67,50,.1); }
+    .cred-line { width:2px; height:3rem; background:var(--green-light); }
+    .cred-text { font-size:.72rem; letter-spacing:.15em; text-transform:uppercase; color:rgba(27,67,50,.45); line-height:2; }
+    .cred-text strong { color:var(--green); font-weight:500; display:block; }
+    .values { padding:8rem 0; background:var(--white); }
+    .values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:4rem; }
+    .value-card { padding:2.5rem; border:1px solid rgba(27,67,50,.1); }
+    .value-num { font-family:var(--font-display); font-size:3.5rem; color:var(--green); opacity:.08; line-height:1; margin-bottom:1rem; }
+    .value-title { font-family:var(--font-display); font-size:1.5rem; color:var(--green); letter-spacing:.03em; margin-bottom:.8rem; }
+    .value-desc { font-size:.85rem; color:var(--ink-soft); line-height:1.75; font-weight:300; }
+    @media(max-width:768px){
+      .about-split { grid-template-columns:1fr; }
+      .about-img-col { height:50vh; }
+      .about-text { padding:3rem 1.5rem; }
+      .values { padding:5rem 0; }
+      .values-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="cursor"></div><div class="cursor-f"></div>
+<nav id="nav" class="dark-nav">
+  <a href="index.html" class="nav-logo">La Sicula<span>Barber</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="find.html">Find Us</a></li>
+  </ul>
+  <a href="book.html" class="nav-cta">Book Now</a>
+  <button class="nav-burger" id="burger"><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="index.html" class="mm-link">Home</a></li>
+    <li><a href="services.html" class="mm-link">Services</a></li>
+    <li><a href="about.html" class="mm-link">About</a></li>
+    <li><a href="find.html" class="mm-link">Find Us</a></li>
+    <li><a href="book.html" class="mm-link mm-cta">Book Now</a></li>
+  </ul>
+</div>
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=1800&q=85&fit=crop" alt="About"/>
+    <div class="page-hero-overlay"></div>
+  </div>
+  <div class="page-hero-content">
+    <span class="eyebrow eyebrow--light" data-reveal>The Story</span>
+    <h1 class="page-hero-title" data-reveal data-delay="1">About<br>La Sicula.</h1>
+    <p class="page-hero-sub" data-reveal data-delay="2">Founded by Dr. Radicia. Built for the community. Every cut a reflection of a standard that does not bend.</p>
+  </div>
+</section>
+<div class="marquee-wrap">
+  <div class="marquee-inner">
+    <span>La Sicula Barber</span><span class="dot">✦</span><span>Dr. Radicia</span><span class="dot">✦</span><span>London School of Barbering</span><span class="dot">✦</span><span>Precision</span><span class="dot">✦</span><span>Community</span><span class="dot">✦</span><span>Est. 2025</span><span class="dot">✦</span>
+  </div>
+</div>
+<section class="about-split">
+  <div class="about-img-col">
+    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=900&q=80&fit=crop" alt="Dr. Radicia" loading="lazy"/>
+  </div>
+  <div class="about-text-col">
+    <div class="about-text">
+      <span class="eyebrow" data-reveal>The Founder</span>
+      <h2 class="section-title" data-reveal>Dr. Radicia.</h2>
+      <p class="about-body" data-reveal>La Sicula Barber was founded by Dr. Radicia, a formally trained barber who completed his studies at the London School of Barbering — one of the UK's most respected and rigorous barbering academies. His training covered all cutting disciplines: clipper work, scissor technique, wet shaving, and beard sculpting.</p>
+      <p class="about-body" data-reveal>The name La Sicula reflects the founder's Italian heritage and the precision that Italian barbering culture has represented for generations. That precision is not a marketing claim. It is the standard that every client experiences from the moment they sit in the chair.</p>
+      <blockquote class="about-quote" data-reveal>
+        <p>"The chair does not care who sits in it. The standard never drops."</p>
+        <cite>Dr. Radicia — Founder, La Sicula Barber</cite>
+      </blockquote>
+      <div class="credential-bar" data-reveal>
+        <div class="cred-line"></div>
+        <div class="cred-text"><strong>Trained at the London School of Barbering</strong>Founder and Head Barber · La Sicula Barber, London</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="values">
+  <div class="container">
+    <span class="eyebrow" data-reveal>What We Stand For</span>
+    <h2 class="section-title" data-reveal>Our Values.</h2>
+    <div class="values-grid">
+      <div class="value-card" data-reveal data-delay="1">
+        <div class="value-num">01</div>
+        <h3 class="value-title">Precision</h3>
+        <p class="value-desc">Every cut is executed with the same level of attention to detail, regardless of the service or the price point. Formally trained technique applied consistently.</p>
+      </div>
+      <div class="value-card" data-reveal data-delay="2">
+        <div class="value-num">02</div>
+        <h3 class="value-title">Accessibility</h3>
+        <p class="value-desc">A great haircut is not a luxury. La Sicula Barber is priced to be competitive with the London market while delivering a standard that exceeds it.</p>
+      </div>
+      <div class="value-card" data-reveal data-delay="3">
+        <div class="value-num">03</div>
+        <h3 class="value-title">Community</h3>
+        <p class="value-desc">La Sicula exists for the neighbourhood. Men, women, students, professionals, and families are all welcome. No exceptions. No judgment. Just a great cut.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div style="padding:5rem 4rem;background:var(--green);text-align:center">
+  <span class="eyebrow eyebrow--light" data-reveal>Experience It</span>
+  <h2 class="section-title section-title--light" data-reveal>Book Your First Cut.</h2>
+  <a href="book.html" class="btn btn-white" data-reveal style="margin:1.5rem auto 0;display:inline-flex">Book Now →</a>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">La Sicula<span>Barber</span></div>
+    <ul class="footer-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="book.html">Book</a></li>
+      <li><a href="find.html">Find Us</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 La Sicula Barber — London</p>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

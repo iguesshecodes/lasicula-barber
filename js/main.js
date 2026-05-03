@@ -1,191 +1,116 @@
-/* ============================================
-   LA SICULA BARBER — main.js
-   Parallax · Reveals · Counters · Nav · Cursor
-   ============================================ */
+/* =============================================
+   LA SICULA BARBER — main.js (shared)
+   ============================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ===== CUSTOM CURSOR ===== */
-  const cursor = document.getElementById('cursor');
-  const follower = document.getElementById('cursor-follower');
-  let mouseX = 0, mouseY = 0;
-  let followerX = 0, followerY = 0;
-
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursor.style.left = mouseX + 'px';
-    cursor.style.top = mouseY + 'px';
-  });
-
-  function animateFollower() {
-    followerX += (mouseX - followerX) * 0.1;
-    followerY += (mouseY - followerY) * 0.1;
-    follower.style.left = followerX + 'px';
-    follower.style.top = followerY + 'px';
-    requestAnimationFrame(animateFollower);
+  /* ── CURSOR ── */
+  const cursor = document.querySelector('.cursor');
+  const cursorF = document.querySelector('.cursor-f');
+  if (cursor && cursorF) {
+    let mx = 0, my = 0, fx = 0, fy = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
+    (function af(){ fx += (mx-fx)*.1; fy += (my-fy)*.1; cursorF.style.left = fx+'px'; cursorF.style.top = fy+'px'; requestAnimationFrame(af); })();
   }
-  animateFollower();
 
-
-  /* ===== NAV ===== */
+  /* ── NAV ── */
   const nav = document.getElementById('nav');
+  if (nav) {
+    const isDark = nav.classList.contains('dark-nav');
+    window.addEventListener('scroll', () => {
+      if (!isDark) nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive:true });
 
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
+    /* Active link */
+    const page = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      const href = a.getAttribute('href');
+      if (href === page || (page === '' && href === 'index.html')) a.classList.add('active');
+    });
+  }
 
-
-  /* ===== MOBILE MENU ===== */
+  /* ── MOBILE MENU ── */
   const burger = document.getElementById('burger');
   const mobileMenu = document.getElementById('mobile-menu');
-
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-  });
-
-  document.querySelectorAll('.mm-link').forEach(link => {
-    link.addEventListener('click', () => {
+  if (burger && mobileMenu) {
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    document.querySelectorAll('.mm-link').forEach(l => l.addEventListener('click', () => {
       burger.classList.remove('open');
       mobileMenu.classList.remove('open');
       document.body.style.overflow = '';
-    });
-  });
+    }));
+  }
 
-
-  /* ===== SCROLL REVEAL ===== */
+  /* ── REVEAL ── */
   const revealEls = document.querySelectorAll('[data-reveal]');
+  if (revealEls.length) {
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); ro.unobserve(e.target); } });
+    }, { threshold:.1, rootMargin:'0px 0px -40px 0px' });
+    revealEls.forEach(el => ro.observe(el));
+  }
 
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  revealEls.forEach(el => revealObserver.observe(el));
-
-
-  /* ===== HERO PARALLAX ===== */
+  /* ── HERO PARALLAX ── */
   const heroBg = document.getElementById('hero-bg');
-
-  window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    if (scrolled < window.innerHeight) {
-      heroBg.style.transform = `translateY(${scrolled * 0.4}px)`;
-    }
-  }, { passive: true });
-
-
-  /* ===== ABOUT IMAGE PARALLAX ===== */
-  const aboutParallax = document.getElementById('about-parallax');
-
-  if (aboutParallax) {
-    const aboutObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          window.addEventListener('scroll', aboutScroll, { passive: true });
-        } else {
-          window.removeEventListener('scroll', aboutScroll);
-        }
-      });
-    }, { threshold: 0 });
-
-    aboutObserver.observe(aboutParallax);
-
-    function aboutScroll() {
-      const rect = aboutParallax.parentElement.getBoundingClientRect();
-      const progress = -rect.top / (rect.height + window.innerHeight);
-      aboutParallax.style.transform = `translateY(${progress * -60}px)`;
-    }
+  if (heroBg) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY < window.innerHeight) heroBg.style.transform = `translateY(${window.scrollY * .4}px)`;
+    }, { passive:true });
   }
 
+  /* ── COUNTERS ── */
+  document.querySelectorAll('.counter').forEach(el => {
+    const co = new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) return;
+      const target = +el.dataset.target, dur = 1800, start = performance.now();
+      (function tick(now){ const p = Math.min((now-start)/dur,1), e = 1-Math.pow(1-p,4); el.textContent = Math.round(e*target); if(p<1) requestAnimationFrame(tick); })(start);
+      co.unobserve(el);
+    }, { threshold:.5 });
+    co.observe(el);
+  });
 
-  /* ===== NUMBER COUNTERS ===== */
-  const counters = document.querySelectorAll('.counter');
+  /* ── MARQUEE CLONE ── */
+  document.querySelectorAll('.marquee-inner').forEach(m => {
+    m.parentElement.appendChild(m.cloneNode(true));
+  });
 
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.dataset.target);
-        const duration = 1800;
-        const start = performance.now();
-
-        function updateCounter(time) {
-          const elapsed = time - start;
-          const progress = Math.min(elapsed / duration, 1);
-          // Ease out quart
-          const eased = 1 - Math.pow(1 - progress, 4);
-          el.textContent = Math.round(eased * target);
-          if (progress < 1) requestAnimationFrame(updateCounter);
-        }
-
-        requestAnimationFrame(updateCounter);
-        counterObserver.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  counters.forEach(counter => counterObserver.observe(counter));
-
-
-  /* ===== MARQUEE CLONE ===== */
-  const marqueeInner = document.getElementById('marquee');
-  if (marqueeInner) {
-    const clone = marqueeInner.cloneNode(true);
-    marqueeInner.parentElement.appendChild(clone);
-  }
-
-
-  /* ===== BOOKING FORM ===== */
-  const form = document.getElementById('book-form');
-  const successMsg = document.getElementById('form-success');
-
-  if (form) {
-    form.addEventListener('submit', async (e) => {
+  /* ── SMOOTH SCROLL ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (!t) return;
       e.preventDefault();
-      const btn = form.querySelector('.form-submit span');
-      btn.textContent = 'Sending...';
-
-      // Simulate async (replace with Supabase insert)
-      await new Promise(resolve => setTimeout(resolve, 1200));
-
-      form.classList.add('hide');
-      successMsg.classList.add('show');
+      window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior:'smooth' });
     });
-  }
+  });
 
-
-  /* ===== SERVICE CARD TILT ===== */
+  /* ── SERVICE CARD TILT ── */
   document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      card.style.transform = `translateY(-8px) rotateX(${-y * 4}deg) rotateY(${x * 4}deg)`;
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5;
+      const y = (e.clientY - r.top) / r.height - .5;
+      card.style.transform = `translateY(-6px) rotateX(${-y*4}deg) rotateY(${x*4}deg)`;
     });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
+    card.addEventListener('mouseleave', () => card.style.transform = '');
   });
 
-
-  /* ===== SMOOTH ANCHOR SCROLL ===== */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (!target) return;
+  /* ── BOOKING FORM ── */
+  const form = document.getElementById('book-form');
+  const success = document.getElementById('form-success');
+  if (form && success) {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
-      const offset = 80;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
+      const btn = form.querySelector('.form-submit');
+      btn.textContent = 'Sending…';
+      await new Promise(r => setTimeout(r, 1200));
+      form.style.display = 'none';
+      success.style.display = 'block';
     });
-  });
+  }
 
 });

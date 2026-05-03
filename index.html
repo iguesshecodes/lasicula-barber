@@ -1,371 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>La Sicula Barber — London</title>
-  <meta name="description" content="La Sicula Barber. Professional haircuts in London. Founded by Dr. Radicia, trained at the London School of Barbering. Book online." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="description" content="La Sicula Barber. Professional haircuts for everyone in London. Men, women, beards. Founded by Dr. Radicia, trained at the London School of Barbering."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    /* ── HERO ── */
+    .hero { min-height:100vh; position:relative; display:flex; flex-direction:column; justify-content:flex-end; padding:0 4rem 5rem; overflow:hidden; }
+    .hero-bg { position:absolute; inset:0; will-change:transform; }
+    .hero-bg img { width:100%; height:110%; object-fit:cover; object-position:center 30%; }
+    .hero-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(14,14,14,.88) 0%,rgba(14,14,14,.35) 55%,rgba(27,67,50,.3) 100%); }
+    .hero-content { position:relative; z-index:2; max-width:800px; padding-bottom:5rem; }
+    .hero-eyebrow { font-size:.68rem; letter-spacing:.35em; text-transform:uppercase; color:var(--green-light); font-weight:500; margin-bottom:1.5rem; display:block; }
+    .hero-title { font-family:var(--font-display); font-size:clamp(5rem,10vw,10rem); line-height:.9; color:var(--white); letter-spacing:.01em; margin-bottom:2rem; }
+    .hero-title span { display:block; }
+    .hero-italic { font-family:var(--font-serif); font-style:italic; font-weight:300; font-size:.62em; color:rgba(250,250,248,.38); letter-spacing:.04em; }
+    .hero-sub { font-size:1rem; color:rgba(250,250,248,.6); line-height:1.75; font-weight:300; max-width:440px; margin-bottom:2.5rem; }
+    .hero-actions { display:flex; gap:1rem; flex-wrap:wrap; }
+    .hero-scroll { position:absolute; bottom:4rem; right:4rem; z-index:2; display:flex; flex-direction:column; align-items:center; gap:.6rem; }
+    .hero-scroll span { font-size:.6rem; letter-spacing:.25em; text-transform:uppercase; color:rgba(250,250,248,.3); writing-mode:vertical-rl; }
+    .hero-stats { position:absolute; bottom:4rem; left:50%; transform:translateX(-50%); z-index:2; display:flex; align-items:center; gap:2.5rem; }
+    .stat strong { font-family:var(--font-display); font-size:2.2rem; color:var(--white); display:inline; }
+    .stat sup { font-family:var(--font-display); font-size:1.2rem; color:var(--green-light); }
+    .stat p { font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(250,250,248,.38); margin-top:.3rem; }
+    .stat-div { width:1px; height:40px; background:rgba(250,250,248,.12); }
+
+    /* ── INTRO ── */
+    .intro { padding:8rem 0; background:var(--white); }
+    .intro-grid { display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; }
+    .intro-img { position:relative; }
+    .intro-img img { height:560px; object-fit:cover; }
+    .intro-badge { position:absolute; bottom:-2rem; right:-2rem; background:var(--green); color:var(--white); padding:1.5rem 2rem; text-align:center; }
+    .intro-badge strong { font-family:var(--font-display); font-size:2.5rem; display:block; line-height:1; }
+    .intro-badge span { font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(250,250,248,.5); margin-top:.4rem; display:block; }
+    .intro-body { font-size:.95rem; color:var(--ink-soft); line-height:1.85; font-weight:300; margin-bottom:1.2rem; max-width:460px; }
+    .intro-quote { border-left:2px solid var(--green-light); padding-left:1.5rem; margin:2.5rem 0; }
+    .intro-quote p { font-family:var(--font-serif); font-style:italic; font-size:1.2rem; color:var(--green); line-height:1.55; font-weight:300; margin-bottom:.5rem; }
+    .intro-quote cite { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(27,67,50,.4); font-style:normal; }
+
+    /* ── SERVICE PREVIEW ── */
+    .services-preview { padding:8rem 0; background:var(--cream); }
+    .sp-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:3rem; }
+    .sp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    .sp-card { background:var(--white); overflow:hidden; transition:transform .5s var(--ease),box-shadow .5s var(--ease); cursor:pointer; }
+    .sp-card:hover { transform:translateY(-8px); box-shadow:0 24px 60px rgba(27,67,50,.1); }
+    .sp-card.featured { background:var(--green); }
+    .sp-img { height:220px; overflow:hidden; position:relative; }
+    .sp-img img { height:100%; object-fit:cover; transition:transform .7s var(--ease); }
+    .sp-card:hover .sp-img img { transform:scale(1.06); }
+    .sp-img-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(14,14,14,.5),transparent); }
+    .sp-body { padding:1.8rem; }
+    .sp-cat { font-size:.65rem; letter-spacing:.25em; text-transform:uppercase; color:var(--green-light); margin-bottom:.5rem; display:block; }
+    .sp-card.featured .sp-cat { color:rgba(250,250,248,.4); }
+    .sp-name { font-family:var(--font-display); font-size:1.6rem; letter-spacing:.03em; color:var(--green); margin-bottom:.6rem; }
+    .sp-card.featured .sp-name { color:var(--white); }
+    .sp-desc { font-size:.83rem; color:var(--ink-soft); line-height:1.7; font-weight:300; margin-bottom:1.2rem; }
+    .sp-card.featured .sp-desc { color:rgba(250,250,248,.5); }
+    .sp-from { font-size:.9rem; font-weight:500; color:var(--green); }
+    .sp-card.featured .sp-from { color:var(--white); }
+
+    /* ── PROCESS ── */
+    .process { padding:8rem 0; background:var(--green); }
+    .process-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3rem; margin-top:5rem; }
+    .process-step { position:relative; }
+    .step-num { font-family:var(--font-display); font-size:5rem; color:rgba(250,250,248,.06); line-height:1; margin-bottom:1.5rem; }
+    .step-line { width:2rem; height:1px; background:var(--green-light); margin-bottom:1.5rem; transition:width .4s var(--ease); }
+    .process-step:hover .step-line { width:4rem; }
+    .step-title { font-family:var(--font-display); font-size:1.5rem; letter-spacing:.03em; color:var(--white); margin-bottom:1rem; }
+    .step-desc { font-size:.88rem; color:rgba(250,250,248,.5); line-height:1.8; font-weight:300; max-width:280px; }
+
+    /* ── TESTIMONIALS ── */
+    .testi { padding:8rem 0; background:var(--white); }
+    .testi-grid { display:grid; grid-template-columns:1fr 1.4fr 1fr; gap:1.5rem; margin-top:4rem; align-items:start; }
+    .testi-card { padding:2.5rem; border:1px solid rgba(27,67,50,.1); transition:border-color .3s,box-shadow .3s; }
+    .testi-card:hover { border-color:var(--green); box-shadow:0 8px 40px rgba(27,67,50,.07); }
+    .testi-card.featured { background:var(--green); border-color:transparent; padding:3rem; }
+    .testi-stars { font-size:.75rem; letter-spacing:.15em; color:var(--green-light); margin-bottom:1.2rem; }
+    .testi-text { font-family:var(--font-serif); font-style:italic; font-size:1.05rem; color:var(--ink-soft); line-height:1.7; font-weight:300; margin-bottom:1.5rem; }
+    .testi-card.featured .testi-text { color:rgba(250,250,248,.7); font-size:1.15rem; }
+    .testi-author { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(27,67,50,.45); font-weight:500; }
+    .testi-card.featured .testi-author { color:rgba(250,250,248,.4); }
+
+    /* ── CTA BANNER ── */
+    .cta-banner { position:relative; padding:8rem 4rem; overflow:hidden; }
+    .cta-banner-bg { position:absolute; inset:0; }
+    .cta-banner-bg img { width:100%; height:100%; object-fit:cover; filter:grayscale(30%) contrast(1.1); }
+    .cta-banner-overlay { position:absolute; inset:0; background:rgba(14,14,14,.88); }
+    .cta-banner-inner { position:relative; z-index:2; max-width:700px; margin:0 auto; text-align:center; }
+    .cta-banner-inner .section-title { color:var(--white); margin-bottom:1.5rem; }
+    .cta-banner-inner p { font-size:.95rem; color:rgba(250,250,248,.5); line-height:1.8; font-weight:300; margin-bottom:2.5rem; }
+
+    @media(max-width:768px){
+      .hero { padding:0 1.5rem 4rem; }
+      .hero-stats { display:none; }
+      .hero-scroll { display:none; }
+      .hero-content { padding-bottom:2rem; }
+      .intro { padding:5rem 0; }
+      .intro-grid { grid-template-columns:1fr; gap:3rem; }
+      .intro-badge { right:1rem; }
+      .services-preview { padding:5rem 0; }
+      .sp-grid { grid-template-columns:1fr; }
+      .sp-header { flex-direction:column; align-items:flex-start; gap:1rem; }
+      .process { padding:5rem 0; }
+      .process-grid { grid-template-columns:1fr; gap:2.5rem; }
+      .testi { padding:5rem 0; }
+      .testi-grid { grid-template-columns:1fr; }
+      .cta-banner { padding:5rem 1.5rem; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- CURSOR -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-follower" id="cursor-follower"></div>
+<div class="cursor"></div>
+<div class="cursor-f"></div>
 
-  <!-- NAV -->
-  <nav id="nav">
-    <a href="#" class="nav-logo">La Sicula<span>Barber</span></a>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#process">How It Works</a></li>
-      <li><a href="#find">Find Us</a></li>
-    </ul>
-    <a href="#book" class="nav-cta">Book Now</a>
-    <button class="nav-burger" id="burger" aria-label="Menu">
-      <span></span><span></span>
-    </button>
-  </nav>
+<nav id="nav">
+  <a href="index.html" class="nav-logo">La Sicula<span>Barber</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="find.html">Find Us</a></li>
+  </ul>
+  <a href="book.html" class="nav-cta">Book Now</a>
+  <button class="nav-burger" id="burger"><span></span><span></span></button>
+</nav>
 
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobile-menu">
-    <ul>
-      <li><a href="#services" class="mm-link">Services</a></li>
-      <li><a href="#about" class="mm-link">About</a></li>
-      <li><a href="#process" class="mm-link">How It Works</a></li>
-      <li><a href="#find" class="mm-link">Find Us</a></li>
-      <li><a href="#book" class="mm-link mm-cta">Book Now</a></li>
-    </ul>
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="index.html" class="mm-link">Home</a></li>
+    <li><a href="services.html" class="mm-link">Services</a></li>
+    <li><a href="about.html" class="mm-link">About</a></li>
+    <li><a href="find.html" class="mm-link">Find Us</a></li>
+    <li><a href="book.html" class="mm-link mm-cta">Book Now</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" id="hero-bg">
+    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1800&q=85&fit=crop" alt="Barber at work"/>
+    <div class="hero-overlay"></div>
   </div>
-
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-bg" id="hero-bg">
-      <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1800&q=85&fit=crop" alt="Barber at work" />
-      <div class="hero-overlay"></div>
-    </div>
-    <div class="hero-content">
-      <p class="hero-eyebrow" data-reveal>London · Est. 2025</p>
-      <h1 class="hero-title" data-reveal data-delay="1">
-        <span>Precision.</span>
-        <span class="hero-title-italic">Crafted</span>
-        <span>In London.</span>
-      </h1>
-      <p class="hero-sub" data-reveal data-delay="2">Founded by Dr. Radicia. Trained at the London School of Barbering. Built for this city.</p>
-      <a href="#book" class="hero-btn" data-reveal data-delay="3">
-        <span>Book Your Appointment</span>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-    <div class="hero-scroll-hint" data-reveal data-delay="4">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat" data-reveal data-delay="3">
-        <strong class="counter" data-target="100">0</strong><span>%</span>
-        <p>Professionally Trained</p>
-      </div>
-      <div class="hero-stat-divider"></div>
-      <div class="hero-stat" data-reveal data-delay="4">
-        <strong class="counter" data-target="3">0</strong><span>+</span>
-        <p>Signature Services</p>
-      </div>
-      <div class="hero-stat-divider"></div>
-      <div class="hero-stat" data-reveal data-delay="5">
-        <strong>5★</strong>
-        <p>Google Rated</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- MARQUEE -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <div class="marquee-inner" id="marquee">
-        <span>La Sicula Barber</span><span class="dot">✦</span>
-        <span>Fades</span><span class="dot">✦</span>
-        <span>Tapers</span><span class="dot">✦</span>
-        <span>Classic Cuts</span><span class="dot">✦</span>
-        <span>London School of Barbering</span><span class="dot">✦</span>
-        <span>Book Online</span><span class="dot">✦</span>
-        <span>Dr. Radicia</span><span class="dot">✦</span>
-        <span>London</span><span class="dot">✦</span>
-        <span>La Sicula Barber</span><span class="dot">✦</span>
-        <span>Fades</span><span class="dot">✦</span>
-        <span>Tapers</span><span class="dot">✦</span>
-        <span>Classic Cuts</span><span class="dot">✦</span>
-        <span>London School of Barbering</span><span class="dot">✦</span>
-        <span>Book Online</span><span class="dot">✦</span>
-        <span>Dr. Radicia</span><span class="dot">✦</span>
-        <span>London</span><span class="dot">✦</span>
-      </div>
+  <div class="hero-content">
+    <span class="hero-eyebrow" data-reveal>London · Est. 2025 · For Everyone</span>
+    <h1 class="hero-title" data-reveal data-delay="1">
+      <span>Pre&shy;ci&shy;sion.</span>
+      <span class="hero-italic">Crafted</span>
+      <span>In London.</span>
+    </h1>
+    <p class="hero-sub" data-reveal data-delay="2">Founded by Dr. Radicia, trained at the London School of Barbering. Expert cuts for men, women, and beards — one standard, no exceptions.</p>
+    <div class="hero-actions" data-reveal data-delay="3">
+      <a href="book.html" class="btn btn-white">Book Appointment →</a>
+      <a href="services.html" class="btn btn-outline">View Services</a>
     </div>
   </div>
+  <div class="hero-scroll" data-reveal data-delay="4">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+  <div class="hero-stats">
+    <div class="stat" data-reveal data-delay="3"><strong class="counter" data-target="100">0</strong><sup>%</sup><p>Professionally Trained</p></div>
+    <div class="stat-div"></div>
+    <div class="stat" data-reveal data-delay="4"><strong class="counter" data-target="15">0</strong><sup>+</sup><p>Services Offered</p></div>
+    <div class="stat-div"></div>
+    <div class="stat" data-reveal data-delay="5"><strong>5★</strong><p>Google Rated</p></div>
+  </div>
+</section>
 
-  <!-- SERVICES -->
-  <section class="services" id="services">
-    <div class="container">
-      <div class="section-intro" data-reveal>
-        <p class="eyebrow">What We Offer</p>
-        <h2 class="section-title">Three Signatures.<br>One Standard.</h2>
-      </div>
-      <div class="services-grid">
-        <div class="service-card" data-reveal data-delay="1">
-          <div class="service-img">
-            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&q=80&fit=crop" alt="Fade haircut" loading="lazy" />
-            <div class="service-img-overlay"></div>
-          </div>
-          <div class="service-body">
-            <span class="service-num">01</span>
-            <h3 class="service-name">The Fade</h3>
-            <p class="service-desc">A seamless blend from skin to length. Clean, sharp, and tailored precisely to the contour of your head.</p>
-            <div class="service-footer">
-              <span class="service-price">From £20</span>
-              <a href="#book" class="service-link">Book <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            </div>
-          </div>
-        </div>
-        <div class="service-card service-card--featured" data-reveal data-delay="2">
-          <div class="service-img">
-            <img src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?w=600&q=80&fit=crop" alt="Taper haircut" loading="lazy" />
-            <div class="service-img-overlay"></div>
-          </div>
-          <div class="service-body">
-            <span class="service-num">02</span>
-            <h3 class="service-name">The Taper</h3>
-            <p class="service-desc">Controlled graduation that transitions naturally, keeping length and structure where it matters most.</p>
-            <div class="service-footer">
-              <span class="service-price">From £22</span>
-              <a href="#book" class="service-link">Book <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            </div>
-          </div>
-        </div>
-        <div class="service-card" data-reveal data-delay="3">
-          <div class="service-img">
-            <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&q=80&fit=crop" alt="Classic cut" loading="lazy" />
-            <div class="service-img-overlay"></div>
-          </div>
-          <div class="service-body">
-            <span class="service-num">03</span>
-            <h3 class="service-name">Classic Cut</h3>
-            <p class="service-desc">Scissor work. Precision lines. A timeless result that works in every room you walk into.</p>
-            <div class="service-footer">
-              <span class="service-price">From £25</span>
-              <a href="#book" class="service-link">Book <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-inner">
+    <span>La Sicula Barber</span><span class="dot">✦</span><span>Men's Cuts</span><span class="dot">✦</span><span>Women's Cuts</span><span class="dot">✦</span><span>Beard Services</span><span class="dot">✦</span><span>London School of Barbering</span><span class="dot">✦</span><span>Book Online</span><span class="dot">✦</span><span>Dr. Radicia</span><span class="dot">✦</span><span>London</span><span class="dot">✦</span>
+  </div>
+</div>
 
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="about-img-col">
-      <div class="about-img-wrap" id="about-parallax">
-        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=900&q=80&fit=crop" alt="La Sicula Barber interior" loading="lazy" />
+<!-- INTRO -->
+<section class="intro">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-img" data-reveal>
+        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=900&q=80&fit=crop" alt="La Sicula Barber interior" loading="lazy"/>
+        <div class="intro-badge">
+          <strong class="counter" data-target="1">0</strong>
+          <span>London's Newest<br>Precision Barbershop</span>
+        </div>
       </div>
-      <div class="about-img-badge" data-reveal>
-        <span class="badge-num counter" data-target="1">0</span>
-        <span class="badge-label">London's Newest<br>Precision Barbershop</span>
-      </div>
-    </div>
-    <div class="about-content-col">
-      <div class="about-content">
-        <p class="eyebrow" data-reveal>The Story</p>
-        <h2 class="section-title" data-reveal>Built For<br>This Neighbourhood.</h2>
-        <p class="about-body" data-reveal>La Sicula Barber was founded on one principle: a great haircut should not be a luxury. Dr. Radicia trained at the London School of Barbering — one of the UK's most prestigious barbering academies — and brought that standard directly into the local community.</p>
-        <p class="about-body" data-reveal>Every technique is precise. Every client leaves confident. Whether you are a student, a professional, or a local resident, the standard is the same: exceptional, every time.</p>
-        <blockquote class="about-quote" data-reveal>
+      <div>
+        <span class="eyebrow" data-reveal>The Story</span>
+        <h2 class="section-title" data-reveal>Built For<br>This City.</h2>
+        <p class="intro-body" data-reveal>La Sicula Barber was founded on one principle: a great cut should not be a luxury. Dr. Radicia trained at the London School of Barbering and brought that standard into the heart of the local community.</p>
+        <p class="intro-body" data-reveal>We serve everyone. Men, women, students, professionals, and families. One chair. One standard. No exceptions.</p>
+        <blockquote class="intro-quote" data-reveal>
           <p>"The chair does not care who sits in it. The standard never drops."</p>
           <cite>Dr. Radicia — Founder, La Sicula Barber</cite>
         </blockquote>
-        <a href="#book" class="btn-primary" data-reveal>Book Your First Cut</a>
+        <a href="about.html" class="btn btn-green" data-reveal>Our Story →</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- HOW IT WORKS -->
-  <section class="process" id="process">
-    <div class="container">
-      <div class="section-intro centered" data-reveal>
-        <p class="eyebrow">Simple. Fast. Done Right.</p>
-        <h2 class="section-title">How It Works</h2>
+<!-- SERVICE PREVIEW -->
+<section class="services-preview">
+  <div class="container">
+    <div class="sp-header" data-reveal>
+      <div>
+        <span class="eyebrow">What We Offer</span>
+        <h2 class="section-title">Services For Everyone.</h2>
       </div>
-      <div class="process-grid">
-        <div class="process-step" data-reveal data-delay="1">
-          <div class="step-num">01</div>
-          <div class="step-line"></div>
-          <h3 class="step-title">Choose Your Service</h3>
-          <p class="step-desc">Fade, taper, or classic cut. Pick the service that suits your style and schedule.</p>
+      <a href="services.html" class="btn btn-green">View All Services →</a>
+    </div>
+    <div class="sp-grid">
+      <div class="sp-card" data-reveal data-delay="1" onclick="location.href='services.html#mens'">
+        <div class="sp-img">
+          <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&q=80&fit=crop" alt="Men's cuts" loading="lazy"/>
+          <div class="sp-img-overlay"></div>
         </div>
-        <div class="process-step" data-reveal data-delay="2">
-          <div class="step-num">02</div>
-          <div class="step-line"></div>
-          <h3 class="step-title">Book Online</h3>
-          <p class="step-desc">Select your date and time. Confirm in under 60 seconds. No phone calls, no waiting.</p>
+        <div class="sp-body">
+          <span class="sp-cat">Men's Services</span>
+          <h3 class="sp-name">Men's Cuts</h3>
+          <p class="sp-desc">Skin fades, tapers, scissor cuts, shape ups and more. Every style executed to professional standard.</p>
+          <p class="sp-from">From £12</p>
         </div>
-        <div class="process-step" data-reveal data-delay="3">
-          <div class="step-num">03</div>
-          <div class="step-line"></div>
-          <h3 class="step-title">Walk Out Confident</h3>
-          <p class="step-desc">Dr. Radicia delivers your cut to a professional standard. Every visit, without exception.</p>
+      </div>
+      <div class="sp-card featured" data-reveal data-delay="2" onclick="location.href='services.html#beard'">
+        <div class="sp-img">
+          <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&q=80&fit=crop" alt="Beard services" loading="lazy"/>
+          <div class="sp-img-overlay"></div>
+        </div>
+        <div class="sp-body">
+          <span class="sp-cat">Beard Services</span>
+          <h3 class="sp-name">Beard & Shave</h3>
+          <p class="sp-desc">Trims, sculpts, hot towel wet shaves and combination packages. Beard done properly.</p>
+          <p class="sp-from">From £12</p>
+        </div>
+      </div>
+      <div class="sp-card" data-reveal data-delay="3" onclick="location.href='services.html#womens'">
+        <div class="sp-img">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80&fit=crop" alt="Women's cuts" loading="lazy"/>
+          <div class="sp-img-overlay"></div>
+        </div>
+        <div class="sp-body">
+          <span class="sp-cat">Women's Services</span>
+          <h3 class="sp-name">Women's Cuts</h3>
+          <p class="sp-desc">Dry cuts, wash cut and blow dry, fringe trims. Precision barbering for everyone.</p>
+          <p class="sp-from">From £8</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <div class="container">
-      <div class="section-intro" data-reveal>
-        <p class="eyebrow">Client Words</p>
-        <h2 class="section-title">What London Says.</h2>
+<!-- HOW IT WORKS -->
+<section class="process">
+  <div class="container">
+    <span class="eyebrow eyebrow--light" data-reveal>Simple. Fast. Done Right.</span>
+    <h2 class="section-title section-title--light" data-reveal>How It Works.</h2>
+    <div class="process-grid">
+      <div class="process-step" data-reveal data-delay="1">
+        <div class="step-num">01</div>
+        <div class="step-line"></div>
+        <h3 class="step-title">Choose Your Service</h3>
+        <p class="step-desc">Browse our full menu of men's, women's, and beard services. Pick what suits you.</p>
       </div>
-      <div class="testi-grid">
-        <div class="testi-card" data-reveal data-delay="1">
-          <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"Best fade I've had in London. Clean lines, no fuss, done properly. Already booked my next one."</p>
-          <p class="testi-author">James T. — Verified Client</p>
-        </div>
-        <div class="testi-card testi-card--large" data-reveal data-delay="2">
-          <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"Finally found a barber I can trust. Dr. Radicia knows exactly what he is doing. The taper was flawless — and I've tried every barbershop in the area."</p>
-          <p class="testi-author">Marcus O. — Verified Client</p>
-        </div>
-        <div class="testi-card" data-reveal data-delay="3">
-          <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"Booked online, no hassle. Great atmosphere, even better results. Coming back every two weeks."</p>
-          <p class="testi-author">Ryan K. — Verified Client</p>
-        </div>
+      <div class="process-step" data-reveal data-delay="2">
+        <div class="step-num">02</div>
+        <div class="step-line"></div>
+        <h3 class="step-title">Book Online</h3>
+        <p class="step-desc">Pick your date and time. Confirmed in under 60 seconds. No phone calls needed.</p>
+      </div>
+      <div class="process-step" data-reveal data-delay="3">
+        <div class="step-num">03</div>
+        <div class="step-line"></div>
+        <h3 class="step-title">Walk Out Confident</h3>
+        <p class="step-desc">Dr. Radicia delivers your cut to a professional standard. Every visit, without exception.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- BOOK -->
-  <section class="book" id="book">
-    <div class="book-bg">
-      <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1400&q=80&fit=crop" alt="Barber shop" loading="lazy" />
-      <div class="book-overlay"></div>
-    </div>
-    <div class="book-content">
-      <div class="book-text" data-reveal>
-        <p class="eyebrow eyebrow--light">Reserve Your Seat</p>
-        <h2 class="section-title section-title--light">Book Your Cut.</h2>
-        <p class="book-sub">Select a service, pick your time, and we will confirm within the hour. Or book instantly via Fresha.</p>
+<!-- TESTIMONIALS -->
+<section class="testi">
+  <div class="container">
+    <span class="eyebrow" data-reveal>Client Words</span>
+    <h2 class="section-title" data-reveal>What London Says.</h2>
+    <div class="testi-grid">
+      <div class="testi-card" data-reveal data-delay="1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Best fade I've had in London. Clean lines, no fuss, done properly."</p>
+        <p class="testi-author">James T. — Verified Client</p>
       </div>
-      <div class="book-form-wrap" data-reveal data-delay="1">
-        <form class="book-form" id="book-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label>First Name</label>
-              <input type="text" name="fname" placeholder="James" required />
-            </div>
-            <div class="form-group">
-              <label>Last Name</label>
-              <input type="text" name="lname" placeholder="Taylor" required />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" name="email" placeholder="james@email.com" required />
-            </div>
-            <div class="form-group">
-              <label>Phone</label>
-              <input type="tel" name="phone" placeholder="+44 7700 000000" />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Service</label>
-              <select name="service" required>
-                <option value="" disabled selected>Select a service</option>
-                <option>The Fade — From £20</option>
-                <option>The Taper — From £22</option>
-                <option>Classic Cut — From £25</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Preferred Date</label>
-              <input type="date" name="date" required />
-            </div>
-          </div>
-          <div class="form-group form-full">
-            <label>Preferred Time</label>
-            <input type="text" name="time" placeholder="e.g. 10:00am or 2:30pm" />
-          </div>
-          <button type="submit" class="form-submit">
-            <span>Confirm Booking</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <p class="form-note">Or book instantly via <a href="https://www.fresha.com" target="_blank">Fresha →</a></p>
-        </form>
-        <div class="form-success" id="form-success">
-          <div class="success-icon">✓</div>
-          <h3>Booking Received</h3>
-          <p>We will confirm your appointment within the hour. See you in the chair.</p>
-        </div>
+      <div class="testi-card featured" data-reveal data-delay="2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Finally found a barber I trust. Came in for a women's cut and left absolutely delighted. Will not be going anywhere else."</p>
+        <p class="testi-author">Sophie M. — Verified Client</p>
+      </div>
+      <div class="testi-card" data-reveal data-delay="3">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Beard sculpt was immaculate. The hot towel shave alone is worth every penny."</p>
+        <p class="testi-author">Marcus O. — Verified Client</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FIND US -->
-  <section class="find" id="find">
-    <div class="container">
-      <div class="find-grid">
-        <div class="find-info">
-          <p class="eyebrow" data-reveal>Get Here</p>
-          <h2 class="section-title" data-reveal>Find La Sicula.</h2>
-          <div class="find-details">
-            <div class="find-item" data-reveal>
-              <span class="find-label">Address</span>
-              <span class="find-val">La Sicula Barber, London, UK</span>
-            </div>
-            <div class="find-item" data-reveal>
-              <span class="find-label">Hours</span>
-              <span class="find-val">Mon–Fri: 9am – 7pm<br>Saturday: 9am – 6pm<br>Sunday: Closed</span>
-            </div>
-            <div class="find-item" data-reveal>
-              <span class="find-label">Social</span>
-              <span class="find-val">@LaSiculaBarber<br>Instagram · TikTok</span>
-            </div>
-          </div>
-          <a href="#book" class="btn-primary btn-dark" data-reveal>Book Now →</a>
-        </div>
-        <div class="find-map" data-reveal>
-          <div class="map-shell">
-            <div class="map-pin-wrap">
-              <div class="map-pin-pulse"></div>
-              <div class="map-pin-dot"></div>
-            </div>
-            <p class="map-label">London, UK</p>
-            <p class="map-sub">Google Maps embed here</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-banner-bg">
+    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1400&q=80&fit=crop" alt="Book now" loading="lazy"/>
+    <div class="cta-banner-overlay"></div>
+  </div>
+  <div class="cta-banner-inner">
+    <span class="eyebrow eyebrow--light" data-reveal>Ready?</span>
+    <h2 class="section-title section-title--light" data-reveal>Book Your Cut Today.</h2>
+    <p data-reveal>Professional haircuts for men, women, and beards. One standard. Every time.</p>
+    <a href="book.html" class="btn btn-white" data-reveal>Book Now →</a>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-logo">La Sicula<span>Barber</span></div>
-      <ul class="footer-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#process">How It Works</a></li>
-        <li><a href="#book">Book</a></li>
-        <li><a href="#find">Find Us</a></li>
-      </ul>
-      <p class="footer-copy">© 2025 La Sicula Barber — London</p>
-    </div>
-  </footer>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">La Sicula<span>Barber</span></div>
+    <ul class="footer-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="book.html">Book</a></li>
+      <li><a href="find.html">Find Us</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 La Sicula Barber — London</p>
+  </div>
+</footer>
 
-  <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

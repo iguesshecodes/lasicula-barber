@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Book — La Sicula Barber London</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .book-page { display:grid; grid-template-columns:1fr 1.1fr; min-height:100vh; }
+    .book-left { background:var(--green); padding:10rem 5rem 5rem; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; }
+    .book-left::before { content:''; position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=900&q=70&fit=crop') center/cover; opacity:.15; }
+    .book-left-content { position:relative; z-index:1; }
+    .book-left .section-title { color:var(--white); }
+    .book-sub { font-size:.95rem; color:rgba(250,250,248,.55); line-height:1.8; font-weight:300; margin-bottom:3rem; max-width:360px; }
+    .book-info { display:flex; flex-direction:column; gap:1.5rem; margin-top:3rem; padding-top:3rem; border-top:1px solid rgba(250,250,248,.1); }
+    .book-info-item { display:flex; flex-direction:column; gap:.3rem; }
+    .book-info-label { font-size:.65rem; letter-spacing:.25em; text-transform:uppercase; color:var(--green-light); font-weight:500; }
+    .book-info-val { font-size:.88rem; color:rgba(250,250,248,.65); font-weight:300; line-height:1.6; }
+    .book-right { background:var(--white); padding:10rem 5rem 5rem; display:flex; flex-direction:column; justify-content:center; }
+    .form-title { font-family:var(--font-display); font-size:1.8rem; letter-spacing:.03em; color:var(--green); margin-bottom:2rem; }
+    .bform { display:flex; flex-direction:column; gap:1.2rem; }
+    .bform-row { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+    .bform-group { display:flex; flex-direction:column; gap:.4rem; }
+    .bform-group label { font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(27,67,50,.5); font-weight:500; }
+    .bform-group input,
+    .bform-group select,
+    .bform-group textarea { border:1px solid rgba(27,67,50,.15); background:var(--cream); padding:.9rem 1rem; font-family:var(--font-body); font-size:.88rem; color:var(--ink); outline:none; transition:border-color .3s,background .3s; }
+    .bform-group input:focus,
+    .bform-group select:focus,
+    .bform-group textarea:focus { border-color:var(--green); background:var(--white); }
+    .bform-group textarea { resize:vertical; min-height:80px; }
+    .bform-submit { background:var(--green); color:var(--white); border:none; padding:1.1rem 2rem; font-family:var(--font-body); font-size:.75rem; letter-spacing:.2em; text-transform:uppercase; font-weight:500; cursor:pointer; transition:background .3s,transform .3s var(--ease); margin-top:.5rem; }
+    .bform-submit:hover { background:var(--green-mid); transform:translateY(-2px); }
+    .form-note { font-size:.72rem; color:rgba(27,67,50,.35); text-align:center; margin-top:.8rem; letter-spacing:.05em; }
+    .form-note a { color:var(--green-light); }
+    .form-success { display:none; text-align:center; padding:3rem; background:var(--cream); }
+    .success-icon { width:60px; height:60px; border-radius:50%; background:var(--green); display:flex; align-items:center; justify-content:center; font-size:1.5rem; color:var(--white); margin:0 auto 1.5rem; }
+    .form-success h3 { font-family:var(--font-display); font-size:2rem; color:var(--green); margin-bottom:.8rem; }
+    .form-success p { font-size:.9rem; color:var(--ink-soft); font-weight:300; line-height:1.7; }
+    @media(max-width:768px){
+      .book-page { grid-template-columns:1fr; }
+      .book-left { padding:7rem 1.5rem 3rem; }
+      .book-right { padding:3rem 1.5rem; }
+      .bform-row { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="cursor"></div><div class="cursor-f"></div>
+<nav id="nav" class="dark-nav">
+  <a href="index.html" class="nav-logo">La Sicula<span>Barber</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="find.html">Find Us</a></li>
+  </ul>
+  <a href="book.html" class="nav-cta">Book Now</a>
+  <button class="nav-burger" id="burger"><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="index.html" class="mm-link">Home</a></li>
+    <li><a href="services.html" class="mm-link">Services</a></li>
+    <li><a href="about.html" class="mm-link">About</a></li>
+    <li><a href="find.html" class="mm-link">Find Us</a></li>
+    <li><a href="book.html" class="mm-link mm-cta">Book Now</a></li>
+  </ul>
+</div>
+
+<main class="book-page">
+  <div class="book-left">
+    <div class="book-left-content">
+      <span class="eyebrow eyebrow--light" data-reveal>Reserve Your Seat</span>
+      <h1 class="section-title section-title--light" data-reveal>Book Your<br>Cut.</h1>
+      <p class="book-sub" data-reveal>Fill in the form and we will confirm within the hour. Or book instantly via Fresha using the link below.</p>
+      <div class="book-info" data-reveal>
+        <div class="book-info-item">
+          <span class="book-info-label">Hours</span>
+          <span class="book-info-val">Mon–Fri: 9:00am – 7:00pm<br>Saturday: 9:00am – 6:00pm<br>Sunday: Closed</span>
+        </div>
+        <div class="book-info-item">
+          <span class="book-info-label">Contact</span>
+          <span class="book-info-val">Via Fresha or the form here</span>
+        </div>
+        <div class="book-info-item">
+          <span class="book-info-label">Social</span>
+          <span class="book-info-val">@LaSiculaBarber<br>Instagram · TikTok</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="book-right">
+    <p class="form-title" data-reveal>Your Details</p>
+    <form class="bform" id="book-form" data-reveal>
+      <div class="bform-row">
+        <div class="bform-group">
+          <label>First Name</label>
+          <input type="text" placeholder="James" required/>
+        </div>
+        <div class="bform-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Taylor" required/>
+        </div>
+      </div>
+      <div class="bform-row">
+        <div class="bform-group">
+          <label>Email</label>
+          <input type="email" placeholder="james@email.com" required/>
+        </div>
+        <div class="bform-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="+44 7700 000000"/>
+        </div>
+      </div>
+      <div class="bform-group">
+        <label>Service</label>
+        <select required>
+          <option value="" disabled selected>Select a service</option>
+          <optgroup label="Men's Cuts">
+            <option>Skin Fade — From £20</option>
+            <option>Mid Fade — From £18</option>
+            <option>Taper Cut — From £20</option>
+            <option>Scissor Cut — From £22</option>
+            <option>Shape Up / Line Up — From £12</option>
+            <option>Kids Cut — From £12</option>
+          </optgroup>
+          <optgroup label="Beard & Shave">
+            <option>Beard Trim & Shape — From £12</option>
+            <option>Full Beard Sculpt — From £18</option>
+            <option>Hot Towel Wet Shave — From £25</option>
+          </optgroup>
+          <optgroup label="Women's Services">
+            <option>Women's Dry Cut — From £25</option>
+            <option>Wash, Cut & Blow Dry — From £38</option>
+            <option>Fringe Trim — From £8</option>
+          </optgroup>
+          <optgroup label="Packages">
+            <option>The Full Works — £45</option>
+            <option>Cut & Beard Combo — £30</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="bform-row">
+        <div class="bform-group">
+          <label>Preferred Date</label>
+          <input type="date" required/>
+        </div>
+        <div class="bform-group">
+          <label>Preferred Time</label>
+          <input type="text" placeholder="e.g. 10:00am"/>
+        </div>
+      </div>
+      <div class="bform-group">
+        <label>Additional Notes (optional)</label>
+        <textarea placeholder="Anything we should know before your appointment..."></textarea>
+      </div>
+      <button type="submit" class="bform-submit">Confirm Booking →</button>
+      <p class="form-note">Or book instantly via <a href="https://www.fresha.com" target="_blank">Fresha →</a></p>
+    </form>
+    <div class="form-success" id="form-success">
+      <div class="success-icon">✓</div>
+      <h3>Booking Received</h3>
+      <p>We will confirm your appointment within the hour. See you in the chair.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">La Sicula<span>Barber</span></div>
+    <ul class="footer-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="book.html">Book</a></li>
+      <li><a href="find.html">Find Us</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 La Sicula Barber — London</p>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
