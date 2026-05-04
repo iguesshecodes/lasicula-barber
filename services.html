@@ -1,250 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Services — La Sicula Barber London</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="css/style.css"/>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Services — La Sicula Barber</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/><link rel="stylesheet" href="css/style.css"/>
   <style>
-    /* ── FILTER TABS ── */
-    .filter-wrap { padding:3rem 0 0; background:var(--white); position:sticky; top:80px; z-index:100; border-bottom:1px solid rgba(27,67,50,.08); }
-    .filter-inner { display:flex; gap:0; max-width:1200px; margin:0 auto; padding:0 4rem; overflow-x:auto; }
-    .filter-btn { font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; font-weight:500; color:rgba(27,67,50,.45); background:none; border:none; padding:1rem 2rem; cursor:pointer; border-bottom:2px solid transparent; transition:color .3s,border-color .3s; white-space:nowrap; font-family:var(--font-body); }
-    .filter-btn.active { color:var(--green); border-bottom-color:var(--green); }
-    .filter-btn:hover { color:var(--green); }
-
-    /* ── SERVICE SECTION ── */
-    .service-section { padding:6rem 0; }
-    .service-section:nth-child(even) { background:var(--cream); }
-    .section-label { display:flex; align-items:center; gap:1.5rem; margin-bottom:3rem; }
-    .section-label-line { flex:1; height:1px; background:rgba(27,67,50,.1); }
-
-    /* ── SERVICE GRID ── */
-    .service-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(27,67,50,.08); border:1px solid rgba(27,67,50,.08); }
-    .service-item { background:var(--white); padding:2rem; transition:background .3s; }
-    .service-section:nth-child(even) .service-item { background:var(--cream); }
-    .service-item:hover { background:var(--green); }
-    .service-item:hover .si-name,
-    .service-item:hover .si-desc,
-    .service-item:hover .si-price,
-    .service-item:hover .si-num { color:var(--white); }
-    .service-item:hover .si-num { opacity:.15; }
-    .si-num { font-family:var(--font-display); font-size:2.5rem; color:var(--green); opacity:.07; line-height:1; margin-bottom:.8rem; transition:color .3s,opacity .3s; }
-    .si-name { font-family:var(--font-display); font-size:1.4rem; letter-spacing:.03em; color:var(--green); margin-bottom:.6rem; transition:color .3s; }
-    .si-desc { font-size:.83rem; color:var(--ink-soft); line-height:1.7; font-weight:300; margin-bottom:1.2rem; transition:color .3s; }
-    .si-price { font-size:1rem; font-weight:500; color:var(--green); transition:color .3s; }
-
-    /* ── PACKAGES ── */
-    .packages { padding:6rem 0; background:var(--green); }
-    .pkg-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; margin-top:4rem; }
-    .pkg-card { background:rgba(250,250,248,.06); border:1px solid rgba(250,250,248,.1); padding:2.5rem; transition:background .3s; }
-    .pkg-card:hover { background:rgba(250,250,248,.1); }
-    .pkg-name { font-family:var(--font-display); font-size:1.8rem; letter-spacing:.03em; color:var(--white); margin-bottom:.8rem; }
-    .pkg-includes { font-size:.8rem; letter-spacing:.15em; text-transform:uppercase; color:var(--green-light); margin-bottom:.8rem; display:block; }
-    .pkg-desc { font-size:.88rem; color:rgba(250,250,248,.5); line-height:1.75; font-weight:300; margin-bottom:1.5rem; }
-    .pkg-price { font-family:var(--font-display); font-size:2.5rem; color:var(--white); letter-spacing:.02em; }
-    .pkg-price span { font-size:1rem; color:rgba(250,250,248,.4); font-family:var(--font-body); }
-
-    /* ── BOOK CTA ── */
-    .book-cta { padding:6rem 4rem; background:var(--cream); text-align:center; }
-    .book-cta .section-title { color:var(--green); margin-bottom:1rem; }
-    .book-cta p { font-size:.95rem; color:var(--ink-soft); margin-bottom:2rem; font-weight:300; }
-
-    @media(max-width:768px){
-      .filter-inner { padding:0 1.5rem; }
-      .service-grid { grid-template-columns:1fr; }
-      .pkg-grid { grid-template-columns:1fr; }
-      .book-cta { padding:4rem 1.5rem; }
-      .service-section { padding:4rem 0; }
-    }
+    .filter-wrap{padding:3rem 0 0;background:var(--white);position:sticky;top:80px;z-index:100;border-bottom:1px solid rgba(27,67,50,.08)}.filter-inner{display:flex;gap:0;max-width:1200px;margin:0 auto;padding:0 4rem;overflow-x:auto}.filter-btn{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:rgba(27,67,50,.45);background:none;border:none;padding:1rem 2rem;cursor:pointer;border-bottom:2px solid transparent;transition:color .3s,border-color .3s;white-space:nowrap;font-family:var(--font-body)}.filter-btn.active{color:var(--green);border-bottom-color:var(--green)}.filter-btn:hover{color:var(--green)}.service-section{padding:6rem 0}.service-section:nth-child(even){background:var(--cream)}.section-label{display:flex;align-items:center;gap:1.5rem;margin-bottom:3rem}.section-label-line{flex:1;height:1px;background:rgba(27,67,50,.1)}.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(27,67,50,.08);border:1px solid rgba(27,67,50,.08)}.service-item{background:var(--white);padding:2rem;transition:background .3s}.service-section:nth-child(even) .service-item{background:var(--cream)}.service-item:hover{background:var(--green)}.service-item:hover .si-name,.service-item:hover .si-desc,.service-item:hover .si-price,.service-item:hover .si-num{color:var(--white)}.service-item:hover .si-num{opacity:.15}.si-num{font-family:var(--font-display);font-size:2.5rem;color:var(--green);opacity:.07;line-height:1;margin-bottom:.8rem;transition:color .3s,opacity .3s}.si-name{font-family:var(--font-display);font-size:1.4rem;letter-spacing:.03em;color:var(--green);margin-bottom:.6rem;transition:color .3s}.si-desc{font-size:.83rem;color:var(--ink-soft);line-height:1.7;font-weight:300;margin-bottom:1.2rem;transition:color .3s}.si-price{font-size:1rem;font-weight:500;color:var(--green);transition:color .3s}.packages{padding:6rem 0;background:var(--green)}.pkg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:4rem}.pkg-card{background:rgba(250,250,248,.06);border:1px solid rgba(250,250,248,.1);padding:2.5rem;transition:background .3s}.pkg-card:hover{background:rgba(250,250,248,.1)}.pkg-name{font-family:var(--font-display);font-size:1.8rem;letter-spacing:.03em;color:var(--white);margin-bottom:.8rem}.pkg-includes{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--green-light);margin-bottom:.8rem;display:block}.pkg-desc{font-size:.88rem;color:rgba(250,250,248,.5);line-height:1.75;font-weight:300;margin-bottom:1.5rem}.pkg-price{font-family:var(--font-display);font-size:2.5rem;color:var(--white);letter-spacing:.02em}.pkg-price span{font-size:1rem;color:rgba(250,250,248,.4);font-family:var(--font-body)}.book-cta{padding:6rem 4rem;background:var(--cream);text-align:center}.book-cta .section-title{color:var(--green);margin-bottom:1rem}.book-cta p{font-size:.95rem;color:var(--ink-soft);margin-bottom:2rem;font-weight:300}@media(max-width:768px){.filter-inner{padding:0 1.5rem}.service-grid{grid-template-columns:1fr}.pkg-grid{grid-template-columns:1fr}.book-cta{padding:4rem 1.5rem}.service-section{padding:4rem 0}}
   </style>
 </head>
 <body>
+<div class="cursor"></div><div class="cursor-f"></div>
+<nav id="nav" class="dark-nav"><a href="index.html" class="nav-logo">La Sicula<span>Barber</span></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="find.html">Find Us</a></li></ul><a href="book.html" class="nav-cta">Book Now</a><button class="nav-burger" id="burger"><span></span><span></span></button></nav>
+<div class="mobile-menu" id="mobile-menu"><ul><li><a href="index.html" class="mm-link">Home</a></li><li><a href="services.html" class="mm-link">Services</a></li><li><a href="about.html" class="mm-link">About</a></li><li><a href="find.html" class="mm-link">Find Us</a></li><li><a href="book.html" class="mm-link mm-cta">Book Now</a></li></ul></div>
 
-<div class="cursor"></div>
-<div class="cursor-f"></div>
+<section class="page-hero"><div class="page-hero-bg"><img src="images/hero-bg.jpg" alt="Services"/><div class="page-hero-overlay"></div></div><div class="page-hero-content"><span class="eyebrow eyebrow--light" data-reveal>Men's Grooming</span><h1 class="page-hero-title" data-reveal data-delay="1">Our Services.</h1><p class="page-hero-sub" data-reveal data-delay="2">Professional haircuts and beard services. Competitive London prices. Every service delivered by Dr. Radicia.</p></div></section>
 
-<nav id="nav" class="dark-nav">
-  <a href="index.html" class="nav-logo">La Sicula<span>Barber</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="find.html">Find Us</a></li>
-  </ul>
-  <a href="book.html" class="nav-cta">Book Now</a>
-  <button class="nav-burger" id="burger"><span></span><span></span></button>
-</nav>
+<div class="marquee-wrap"><div class="marquee-inner"><span>Men's Cuts</span><span class="dot">✦</span><span>Beard Services</span><span class="dot">✦</span><span>Hot Towel Shave</span><span class="dot">✦</span><span>Skin Fade</span><span class="dot">✦</span><span>Book Online</span><span class="dot">✦</span></div></div>
 
-<div class="mobile-menu" id="mobile-menu">
-  <ul>
-    <li><a href="index.html" class="mm-link">Home</a></li>
-    <li><a href="services.html" class="mm-link">Services</a></li>
-    <li><a href="about.html" class="mm-link">About</a></li>
-    <li><a href="find.html" class="mm-link">Find Us</a></li>
-    <li><a href="book.html" class="mm-link mm-cta">Book Now</a></li>
-  </ul>
-</div>
+<div class="filter-wrap"><div class="filter-inner"><button class="filter-btn active" onclick="scrollTo('mens')">Men's Cuts</button><button class="filter-btn" onclick="scrollTo('beard')">Beard & Shave</button><button class="filter-btn" onclick="scrollTo('packages')">Packages</button></div></div>
 
-<!-- PAGE HERO -->
-<section class="page-hero">
-  <div class="page-hero-bg">
-    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1800&q=85&fit=crop" alt="Services"/>
-    <div class="page-hero-overlay"></div>
-  </div>
-  <div class="page-hero-content">
-    <span class="eyebrow eyebrow--light" data-reveal>Men · Women · Beard</span>
-    <h1 class="page-hero-title" data-reveal data-delay="1">Our<br>Services.</h1>
-    <p class="page-hero-sub" data-reveal data-delay="2">Competitive London prices. Professional standard. Every service delivered by Dr. Radicia, trained at the London School of Barbering.</p>
-  </div>
-</section>
+<section class="service-section" id="mens"><div class="container"><div class="section-label" data-reveal><span class="eyebrow" style="margin:0">Men's Cuts</span><div class="section-label-line"></div></div><div class="service-grid"><div class="service-item" data-reveal data-delay="1"><div class="si-num">01</div><h3 class="si-name">Skin Fade</h3><p class="si-desc">A seamless blend from skin to length. Clean, sharp, and tailored precisely to your head shape.</p><p class="si-price">From £20</p></div><div class="service-item" data-reveal data-delay="2"><div class="si-num">02</div><h3 class="si-name">Mid Fade</h3><p class="si-desc">Versatile classic. A mid-height fade that works across all hair types and face shapes.</p><p class="si-price">From £18</p></div><div class="service-item" data-reveal data-delay="3"><div class="si-num">03</div><h3 class="si-name">Taper Cut</h3><p class="si-desc">Controlled graduation that transitions naturally. Keeps length exactly where it matters.</p><p class="si-price">From £20</p></div><div class="service-item" data-reveal data-delay="1"><div class="si-num">04</div><h3 class="si-name">Scissor Cut</h3><p class="si-desc">Precision scissor work for texture and movement. A classic technique done properly.</p><p class="si-price">From £22</p></div><div class="service-item" data-reveal data-delay="2"><div class="si-num">05</div><h3 class="si-name">Shape Up / Line Up</h3><p class="si-desc">Sharp edges and clean lines. A precise definition of your hairline and beard border.</p><p class="si-price">From £12</p></div><div class="service-item" data-reveal data-delay="3"><div class="si-num">06</div><h3 class="si-name">Kids Cut</h3><p class="si-desc">Patient, precise cuts for children under 12. A calm environment and professional result.</p><p class="si-price">From £12</p></div></div></div></section>
 
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-inner">
-    <span>Men's Cuts</span><span class="dot">✦</span><span>Women's Cuts</span><span class="dot">✦</span><span>Beard Services</span><span class="dot">✦</span><span>Hot Towel Shave</span><span class="dot">✦</span><span>Skin Fade</span><span class="dot">✦</span><span>Packages</span><span class="dot">✦</span><span>Book Online</span><span class="dot">✦</span>
-  </div>
-</div>
+<section class="service-section" id="beard"><div class="container"><div class="section-label" data-reveal><span class="eyebrow" style="margin:0">Beard & Shave</span><div class="section-label-line"></div></div><div class="service-grid"><div class="service-item" data-reveal data-delay="1"><div class="si-num">01</div><h3 class="si-name">Beard Trim & Shape</h3><p class="si-desc">Clean trim and precise shaping. Tidied, moisturised, and finished with a straight razor edge.</p><p class="si-price">From £12</p></div><div class="service-item" data-reveal data-delay="2"><div class="si-num">02</div><h3 class="si-name">Full Beard Sculpt</h3><p class="si-desc">Comprehensive beard service. Full shape, detailed line work, taper into the neck.</p><p class="si-price">From £18</p></div><div class="service-item" data-reveal data-delay="3"><div class="si-num">03</div><h3 class="si-name">Hot Towel Wet Shave</h3><p class="si-desc">Traditional barbershop experience. Hot towel prep, single-blade precision shave, cold finish.</p><p class="si-price">From £25</p></div></div></div></section>
 
-<!-- FILTER TABS -->
-<div class="filter-wrap">
-  <div class="filter-inner">
-    <button class="filter-btn active" onclick="scrollTo('mens')">Men's Cuts</button>
-    <button class="filter-btn" onclick="scrollTo('beard')">Beard & Shave</button>
-    <button class="filter-btn" onclick="scrollTo('womens')">Women's</button>
-    <button class="filter-btn" onclick="scrollTo('packages')">Packages</button>
-  </div>
-</div>
+<section class="packages" id="packages"><div class="container"><span class="eyebrow eyebrow--light" data-reveal>Best Value</span><h2 class="section-title section-title--light" data-reveal>Packages.</h2><div class="pkg-grid"><div class="pkg-card" data-reveal data-delay="1"><h3 class="pkg-name">The Full Works</h3><span class="pkg-includes">Haircut + Beard Sculpt + Hot Towel Shave</span><p class="pkg-desc">Complete grooming. Precision cut, full beard sculpt, and traditional hot towel wet shave.</p><p class="pkg-price">£45 <span>/ session</span></p></div><div class="pkg-card" data-reveal data-delay="2"><h3 class="pkg-name">Cut & Beard Combo</h3><span class="pkg-includes">Haircut + Beard Trim & Shape</span><p class="pkg-desc">Your haircut and beard done together in one session. A clean, coordinated finish.</p><p class="pkg-price">£30 <span>/ session</span></p></div></div></div></section>
 
-<!-- MEN'S SERVICES -->
-<section class="service-section" id="mens">
-  <div class="container">
-    <div class="section-label" data-reveal>
-      <span class="eyebrow" style="margin:0">Men's Cuts</span>
-      <div class="section-label-line"></div>
-    </div>
-    <div class="service-grid">
-      <div class="service-item" data-reveal data-delay="1">
-        <div class="si-num">01</div>
-        <h3 class="si-name">Skin Fade</h3>
-        <p class="si-desc">A seamless blend from skin to length. Clean, sharp, and tailored precisely to the contour of your head. Our most popular service.</p>
-        <p class="si-price">From £20</p>
-      </div>
-      <div class="service-item" data-reveal data-delay="2">
-        <div class="si-num">02</div>
-        <h3 class="si-name">Mid Fade</h3>
-        <p class="si-desc">The versatile classic. A mid-height fade that works across all hair types and face shapes. Clean, structured, and timeless.</p>
-        <p class="si-price">From £18</p>
-      </div>
-      <div class="service-item" data-reveal data-delay="3">
-        <div class="si-num">03</div>
-        <h3 class="si-name">Taper Cut</h3>
-        <p class="si-desc">Controlled graduation that transitions naturally. Keeps length and structure exactly where it matters most.</p>
-        <p class="si-price">From £20</p>
-      </div>
-      <div class="service-item" data-reveal data-delay="1">
-        <div class="si-num">04</div>
-        <h3 class="si-name">Scissor Cut</h3>
-        <p class="si-desc">Precision scissor work for texture, movement, and shape. A classic technique that rewards the detail-oriented barber.</p>
-        <p class="si-price">From £22</p>
-      </div>
-      <div class="service-item" data-reveal data-delay="2">
-        <div class="si-num">05</div>
-        <h3 class="si-name">Shape Up / Line Up</h3>
-        <p class="si-desc">Sharp edges, clean lines. A precise definition of your hairline, temples, and beard border. A quick refresh that makes all the difference.</p>
-        <p class="si-price">From £12</p>
-      </div>
-      <div class="service-item" data-reveal data-delay="3">
-        <div class="si-num">06</div>
-        <h3 class="si-name">Kids Cut</h3>
-        <p class="si-desc">Patient, precise cuts for children under 12. A calm environment and a professional result every time. All styles catered for.</p>
-        <p class="si-price">From £12</p>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="book-cta"><span class="eyebrow" data-reveal>Ready to Book?</span><h2 class="section-title" data-reveal>Reserve Your Seat.</h2><p data-reveal>Select your service, pick your time, we confirm within the hour.</p><a href="book.html" class="btn btn-green" data-reveal>Book Now →</a></div>
 
-<!-- BEARD SERVICES -->
-<section class="service-section" id="beard">
-  <div class="container">
-    <div class="section-label" data-reveal>
-      <span class="eyebrow" style="margin:0">Beard & Shave</span>
-      <div class="section-label-line"></div>
-    </div>
-    <div class="service-grid">
-      <div class="service-item" data-reveal data-delay="1">
-        <div class="si-num">01</div>
-        <h3 class="si-name">Beard Trim & Shape</h3>
-        <p class="si-desc">A clean trim and precise shaping tailored to your face shape. Tidied, moisturised, and finished with a straight razor edge.</p>
-        <p class="si-price">From £12</p>
-      </div>
-      <div class="service-item" data-reveal data-delay="2">
-        <div class="si-num">02</div>
-        <h3 class="si-name">Full Beard Sculpt</h3>
-        <p class="si-desc">A comprehensive beard service. Full shape, detailed line work, taper into the neck, and moisturising treatment included.</p>
-        <p class="si-price">From £18</p>
-      </div>
-      <div class="service-item" data-reveal data-delay="3">
-        <div class="si-num">03</div>
-        <h3 class="si-name">Hot Towel Wet Shave</h3>
-        <p class="si-desc">The traditional barbershop experience. Hot towel preparation, single-blade precision shave, and a cold towel finish. Unmatched.</p>
-        <p class="si-price">From £25</p>
-      </div>
-    </div>
-  </div>
-</section>
+<footer><div class="footer-inner"><div class="footer-logo">La Sicula<span>Barber</span></div><ul class="footer-links"><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="book.html">Book</a></li><li><a href="find.html">Find Us</a></li></ul><p class="footer-copy">© 2025 La Sicula Barber — London</p></div></footer>
 
-<!-- PACKAGES -->
-<section class="packages" id="packages">
-  <div class="container">
-    <span class="eyebrow eyebrow--light" data-reveal>Best Value</span>
-    <h2 class="section-title section-title--light" data-reveal>Packages.</h2>
-    <div class="pkg-grid">
-      <div class="pkg-card" data-reveal data-delay="1">
-        <h3 class="pkg-name">The Full Works</h3>
-        <span class="pkg-includes">Haircut + Beard Sculpt + Hot Towel Shave</span>
-        <p class="pkg-desc">The complete grooming experience. A precision haircut, a full beard sculpt with straight razor detail, and a traditional hot towel wet shave. The best value in the shop.</p>
-        <p class="pkg-price">£45 <span>/ session</span></p>
-      </div>
-      <div class="pkg-card" data-reveal data-delay="2">
-        <h3 class="pkg-name">Cut & Beard Combo</h3>
-        <span class="pkg-includes">Haircut + Beard Trim & Shape</span>
-        <p class="pkg-desc">Your haircut and beard done together in one session. A clean, coordinated finish from head to jaw. Perfect for a regular maintenance visit.</p>
-        <p class="pkg-price">£30 <span>/ session</span></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BOOK CTA -->
-<div class="book-cta">
-  <span class="eyebrow" data-reveal>Ready to Book?</span>
-  <h2 class="section-title" data-reveal>Reserve Your Seat.</h2>
-  <p data-reveal>Select your service, pick your time, and we confirm within the hour.</p>
-  <a href="book.html" class="btn btn-green" data-reveal>Book Now →</a>
-</div>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">La Sicula<span>Barber</span></div>
-    <ul class="footer-links">
-      <li><a href="services.html">Services</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="book.html">Book</a></li>
-      <li><a href="find.html">Find Us</a></li>
-    </ul>
-    <p class="footer-copy">© 2025 La Sicula Barber — London</p>
-  </div>
-</footer>
-
-<script src="js/main.js"></script>
-<script>
-function scrollTo(id){
-  const el = document.getElementById(id);
-  if(el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 140, behavior:'smooth' });
-}
-</script>
+<script src="js/main.js"></script><script>function scrollTo(id){const el=document.getElementById(id);if(el)window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-140,behavior:'smooth'})}</script>
 </body>
 </html>
